@@ -36,7 +36,7 @@ export class News extends Component {
     // 2) 'this.setState' helps to call the things you need in the state , in this case - the 'articles' array is needed to fetch all the news article and 'totalResults' is needed to calculate the no. of results to display in each page
     // 1)this is where the app is first started-->
     async componentDidMount() {
-        let mainNewsUrl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=8d7eb8fec53f4b8993d5fbcc2f10d5f4&page=1&pageSize=${this.props.pageSize}`;
+        let mainNewsUrl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5e80c11ca1394dfd8e655e87cd454fb6&page=1&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });           //before fetching the data show loading icon
         let data = await fetch(mainNewsUrl);        //await for data to be fetched 
         let parsedData = await data.json();    //then await for the data to be converted to JSON and then set state 
@@ -49,7 +49,7 @@ export class News extends Component {
 
     // Function to go to previous page
     handlePreviousPage = async () => {
-        let mainNewsUrl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=8d7eb8fec53f4b8993d5fbcc2f10d5f4&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+        let mainNewsUrl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5e80c11ca1394dfd8e655e87cd454fb6&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });                //before fetching the data show loading icon
         let data = await fetch(mainNewsUrl);
         let parsedData = await data.json();
@@ -65,7 +65,7 @@ export class News extends Component {
         if (this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)) {
         }
         else {
-            let mainNewsUrl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=8d7eb8fec53f4b8993d5fbcc2f10d5f4&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+            let mainNewsUrl = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5e80c11ca1394dfd8e655e87cd454fb6&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
             this.setState({ loading: true });                //before fetching the data show loading icon
             let data = await fetch(mainNewsUrl);
             let parsedData = await data.json();
